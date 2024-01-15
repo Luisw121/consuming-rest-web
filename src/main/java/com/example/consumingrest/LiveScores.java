@@ -1,5 +1,6 @@
 package com.example.consumingrest;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,12 +16,12 @@ public class LiveScores {
     private List<Map<String, String>> fullTime;
     private List<Map<String, String>> matchGoals;
 
-    public Map<String, List<Map<String, String>>> getFirstHalf() {
-        return firstHalf;
+    public List<Map<String, String>> getFirstHalf() {
+        return (List<Map<String, String>>) firstHalf;
     }
 
-    public Map<String, List<Map<String, String>>> getAsianHandicap() {
-        return asianHandicap;
+    public List<Map<String, String>> getAsianHandicap() {
+        return (List<Map<String, String>>) asianHandicap;
     }
 
     public List<Map<String, String>> getBothTeamsToScore() {
@@ -93,6 +94,20 @@ public class LiveScores {
 
     public void setMatchGoals(List<Map<String, String>> matchGoals) {
         this.matchGoals = matchGoals;
+    }
+    public Map<String, List<Map<String, String>>> toMap() {
+        Map<String, List<Map<String, String>>> result = new HashMap<>();
+        result.put("1st half", getFirstHalf());
+        result.put("Asian handicap", getAsianHandicap());
+        result.put("Both teams to score", getBothTeamsToScore());
+        result.put("Cards in match", getCardsInMatch());
+        result.put("Corners 2-Way", getCorners2Way());
+        result.put("Double chance", getDoubleChance());
+        result.put("Draw no bet", getDrawNoBet());
+        result.put("First team to score", getFirstTeamToScore());
+        result.put("Full time", getFullTime());
+        result.put("Match goals", getMatchGoals());
+        return result;
     }
 }
 
