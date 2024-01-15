@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 public class LiveScores {
-    private Map<String, List<Map<String, String>>> firstHalf;
-    private Map<String, List<Map<String, String>>> asianHandicap;
+    private List<Map<String, String>> firstHalf;
+    private List<Map<String, String>> asianHandicap;
     private List<Map<String, String>> bothTeamsToScore;
     private List<Map<String, String>> cardsInMatch;
     private List<Map<String, String>> corners2Way;
@@ -17,11 +17,11 @@ public class LiveScores {
     private List<Map<String, String>> matchGoals;
 
     public List<Map<String, String>> getFirstHalf() {
-        return (List<Map<String, String>>) firstHalf;
+        return firstHalf;
     }
 
     public List<Map<String, String>> getAsianHandicap() {
-        return (List<Map<String, String>>) asianHandicap;
+        return asianHandicap;
     }
 
     public List<Map<String, String>> getBothTeamsToScore() {
@@ -56,11 +56,11 @@ public class LiveScores {
         return matchGoals;
     }
 
-    public void setFirstHalf(Map<String, List<Map<String, String>>> firstHalf) {
+    public void setFirstHalf(List<Map<String, String>> firstHalf) {
         this.firstHalf = firstHalf;
     }
 
-    public void setAsianHandicap(Map<String, List<Map<String, String>>> asianHandicap) {
+    public void setAsianHandicap(List<Map<String, String>> asianHandicap) {
         this.asianHandicap = asianHandicap;
     }
 
@@ -94,20 +94,6 @@ public class LiveScores {
 
     public void setMatchGoals(List<Map<String, String>> matchGoals) {
         this.matchGoals = matchGoals;
-    }
-    public Map<String, List<Map<String, String>>> toMap() {
-        Map<String, List<Map<String, String>>> result = new HashMap<>();
-        result.put("1st half", getFirstHalf());
-        result.put("Asian handicap", getAsianHandicap());
-        result.put("Both teams to score", getBothTeamsToScore());
-        result.put("Cards in match", getCardsInMatch());
-        result.put("Corners 2-Way", getCorners2Way());
-        result.put("Double chance", getDoubleChance());
-        result.put("Draw no bet", getDrawNoBet());
-        result.put("First team to score", getFirstTeamToScore());
-        result.put("Full time", getFullTime());
-        result.put("Match goals", getMatchGoals());
-        return result;
     }
 }
 
